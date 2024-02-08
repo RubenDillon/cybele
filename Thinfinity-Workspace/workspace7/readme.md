@@ -64,18 +64,18 @@ az account set --subscription dddddxxxx-xx-xxxxx-xxxxxxxx
 Configure a connection to the local intranet
 =
 1. Deploy IIS in the Windows server with all the defaults
-- Open Server Manager
-- Select Deploy Server Roles and Features on the local server
-- Select Web Server (IIS)
-- Accept all by default 
+	- Open Server Manager
+	- Select Deploy Server Roles and Features on the local server
+	- Select Web Server (IIS)
+	- Accept all by default 
             
 2. Open Thinfinity Configuration Manager, select Profiles and Add web link
     
 3. On the form complete the following
-- name: intranet
-- click "open in a new tab"
-- link: localhost
-- Accept the configuration
+	- name: intranet
+	- click "open in a new tab"
+	- link: localhost
+	- Accept the configuration
 
 4. Apply the configuration in the Configuration Manager
 
@@ -88,12 +88,12 @@ Configure a RDP connection to the local server
 1. Open Thinfinity Configuration Manager, select Profiles and Add RDP connection
     
 2. On the form complete the following
-- name: Windows Server
-- Click "open in new tab"
-- Select RDP
-- Computer: complete your local IP address
-- Select Ask for new credentials
-- Accept the configuration
+	- name: Windows Server
+	- Click "open in new tab"
+	- Select RDP
+	- Computer: complete your local IP address
+	- Select Ask for new credentials
+	- Accept the configuration
 
 3. Apply the configuration in the Configuration Manager
 
