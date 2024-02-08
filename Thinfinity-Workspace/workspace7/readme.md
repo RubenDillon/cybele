@@ -22,8 +22,8 @@ Create the environment
 2. Download the latest application from https://downloads.cybelesoft.com/thinfinity_remote_workspace_setup_x64.exe
     
 3. Run the installer of the application and select the following configuration
-	All the components
-	The default directory
+- All the components
+- The default directory
 	
 4. Once the deployment completes, we need to request the Community or a Trial Serial Number. For that we need to run the
 Thinfinity Remote Desktop Configuration Manager and select the appropiate option.
@@ -64,22 +64,22 @@ az account set --subscription dddddxxxx-xx-xxxxx-xxxxxxxx
 Configure a connection to the local intranet
 =
 1. Deploy IIS in the Windows server with all the defaults
-	Open Server Manager
-	Select Deploy Server Roles and Features on the local server
-	Select Web Server (IIS)
-	Accept all by default 
+- Open Server Manager
+- Select Deploy Server Roles and Features on the local server
+- Select Web Server (IIS)
+- Accept all by default 
             
-3. Open Thinfinity Configuration Manager, select Profiles and Add web link
+2. Open Thinfinity Configuration Manager, select Profiles and Add web link
     
-4. On the form complete the following
-   	name: intranet
-   	click "open in a new tab"
-   	link: localhost
-   	Accept the configuration
+3. On the form complete the following
+- name: intranet
+- click "open in a new tab"
+- link: localhost
+- Accept the configuration
 
-5. Apply the configuration in the Configuration Manager
+4. Apply the configuration in the Configuration Manager
 
-6. Open the browser and select the "intranet" icon. A new tab will be open with the IIS Welcome page.
+5. Open the browser and select the "intranet" icon. A new tab will be open with the IIS Welcome page.
 
 
 Configure a RDP connection to the local server
@@ -87,17 +87,17 @@ Configure a RDP connection to the local server
             
 1. Open Thinfinity Configuration Manager, select Profiles and Add RDP connection
     
-4. On the form complete the following
-   	name: Windows Server
-   	Click "open in new tab"
-   	Select RDP
-   	Computer: complete your local IP address
-   	Select Ask for new credentials
-   	Accept the configuration
+2. On the form complete the following
+- name: Windows Server
+- Click "open in new tab"
+- Select RDP
+- Computer: complete your local IP address
+- Select Ask for new credentials
+- Accept the configuration
 
-6. Apply the configuration in the Configuration Manager
+3. Apply the configuration in the Configuration Manager
 
-7. Open the browser and select the "Windows Server" icon. A new tab will be open with the RDP connection.
+4. Open the browser and select the "Windows Server" icon. A new tab will be open with the RDP connection.
 
 
 
