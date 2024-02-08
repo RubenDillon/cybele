@@ -1,7 +1,7 @@
 # Deploying Thinfinity Workspace 
 ### All the configurations using defaults 
 
-In this tutorial we will be Thinfinity Worspace v7 with the default configuration. We will focus on the in the simplest installation, which involves deploying all components on a single server.
+In this tutorial we will be deploying Thinfinity Workspace v7 with the default configuration. We will focus on the simplest installation, which involves deploying all components on a single server.
 
 Requirements
 ============
