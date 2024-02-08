@@ -22,8 +22,8 @@ Create the environment
 2. Download the latest application from https://downloads.cybelesoft.com/thinfinity_remote_workspace_setup_x64.exe
     
 3. Run the installer of the application and select the following configuration
-- All the components
-- The default directory
+	- All the components
+	- The default directory
 	
 4. Once the deployment completes, we need to request the Community or a Trial Serial Number. For that we need to run the
 Thinfinity Remote Desktop Configuration Manager and select the appropiate option.
