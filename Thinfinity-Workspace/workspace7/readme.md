@@ -1,5 +1,5 @@
 # Deploying Thinfinity Workspace 
-### All the configuration using defaults 
+### All the configurations using defaults 
 
 In this tutorial we will be Thinfinity Worspace v7 with the default configuration. We will focus on the in the simplest installation, which involves deploying all components on a single server.
 
@@ -44,20 +44,9 @@ Thinfinity Remote Desktop Configuration Manager and select the appropiate option
 8. You could connect to http://localhost:9443 and connects to the Thinfinity Remote Workspace portal.
 
 9. If you have exposed this server to the internet, you could select the option "Enable External access in Windows firewall" from the Configuration Manager
-				
-
-Configure the environment
-======================
-
-1. The 
-```
-brew update && brew install azure-cli
-```
-    
-2. Log to Azure 
         
 
-Configure a connection to the local intranet
+Configure and test a connection to the local intranet
 =
 1. Deploy IIS in the Windows server with all the defaults
 	- Open Server Manager
@@ -78,7 +67,7 @@ Configure a connection to the local intranet
 5. Open the browser and select the "intranet" icon. A new tab will be open with the IIS Welcome page.
 
 
-Configure a RDP connection to the local server
+Configure and test a RDP connection to the local server
 =
             
 1. Open Thinfinity Configuration Manager, select Profiles and Add RDP connection
@@ -96,7 +85,7 @@ Configure a RDP connection to the local server
 4. Open the browser and select the "Windows Server" icon. A new tab will be open with the RDP connection.
 
 
-Configure a Web Folder sharing 
+Configure and test a Web Folder sharing 
 =
 
 1. On the server create a folder in the root called "Prueba"
@@ -119,7 +108,7 @@ Configure a Web Folder sharing
 
 7. Review the folder in your server.
 
-Configure a SSH to Windows Server 
+Configure and test a SSH to Windows Server 
 =
 
 1. On the server verify is openSSH is already deployed using the following Powershell command
@@ -169,19 +158,8 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 
 
 
-create the Tanzu Net secret using TMC
-=
-```
-Secret name: tap-registry
-Image registry URL: registry.tanzu.vmware.com
-Username: <your-tanzu-net-username>
-Password: <your-tanzu-net-password>
-namespace: tap-install
-export to all namespaces
-```
 
-
-Based on the following documentation
+This Step by Step is based on the following documentation
 =
 - https://kb.cybelesoft.com/portal/en/kb/articles/guide-workspace-7-installation-license-registration#2_Download_and_Install
 - https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell
