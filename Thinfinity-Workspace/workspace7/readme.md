@@ -1,23 +1,30 @@
 # Deploying Thinfinity Workspace 
-### all by default 
+### All the configuration using defaults 
 
 In this tutorial we will be Thinfinity Worspace v7 with the default configuration. We will focus on the in the simplest installation, which involves deploying all components on a single server.
 
 Requirements
 ============
 
-1. A virtual Machine with Windows Server 
+1. A virtual Machine with Windows Server to deploy all the Thinfinity components
+2. A second virtual machine to be used as Application Server
 
 Environment
 ==========
 
-At the end of this step by step we will be using the following infrastructure
-- A .....
+We will be using the following configuration
+- The Thinfinity server will have
+	- 2 vCPU
+ 	- 4 GB RAM
+  	- Windows Server 2022  
+- The application Server will have
+	- 2 vCPU
+ 	- 4 GB RAM
+  	- Windows Server 2022 
 
-
-Create the environment
+Create the Thinfinity Environment
 =====================================
-1. For this environment we will be using a Windows Server 2022
+1. For the deployment of the Thinfinity workspace environment we will be using a Windows Server 2022
     
 2. Download the latest application from https://downloads.cybelesoft.com/thinfinity_remote_workspace_setup_x64.exe
     
