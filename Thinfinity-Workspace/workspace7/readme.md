@@ -157,6 +157,35 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 10. Review the folder in your server.
 
 
+Improving security 
+=
+
+1. On the Configuration Manager go to Authentication and deselect the "Allow anonymous access"
+
+2. On the protection tab, select "Enable brute force detection"
+
+3. If you want to some profile / connection will be available only for a specific Windows group, edit that profile and select Permissions and add that group to that profile.
+
+4. Logout the Thinfinity Workspace and log with a user who is not in that group. You will not see that profile in the Portal.
+
+5. Logout the Thinfinity Workspace and log with a user who is part in that group. You will see that profile in the Portal.
+   
+
+Create your own connections
+=
+
+1. On the Thinfinity Workspace portal login with any user, select the "+ New Profile" button from the upper right corner
+
+2. Select the following options
+	- Desktop
+ 	- RDP
+  	- This PC
+   	- Credentials : select use the authenticated credentials
+   	- Define the name of the connection
+  
+3. Select the profile and open RDP connection with the server 	
+
+
 
 
 This Step by Step is based on the following documentation
