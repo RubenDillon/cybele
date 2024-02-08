@@ -48,17 +48,6 @@ brew update && brew install azure-cli
 ```
     
 2. Log to Azure 
-```
-az login
-```
-    
-3. Define your subscription
-```
-az account set --subscription dddddxxxx-xx-xxxxx-xxxxxxxx
-```
-    
-4. Create the resource group where AKS will be deployed
-
         
 
 Configure a connection to the local intranet
@@ -100,6 +89,76 @@ Configure a RDP connection to the local server
 4. Open the browser and select the "Windows Server" icon. A new tab will be open with the RDP connection.
 
 
+Configure a Web Folder sharing 
+=
+
+1. On the server create a folder in the root called "Prueba"
+   
+2. Open Thinfinity Configuration Manager, select Profiles and Add Web Folder connection
+    
+3. On the form complete the following
+	- name: Web Folder
+	- Click "Visible" and "Open in new tab"
+	- Select Local Server
+	- Root Path: C:\prueba
+	- Select Ask for new credentials
+	- Accept the configuration
+
+4. Apply the configuration in the Configuration Manager
+
+5. Open the browser and select the "Web Folder" icon. A new tab will be open with the folder connection.
+
+6. Upload a file, edit and download if you want it.
+
+7. Review the folder in your server.
+
+Configure a SSH to Windows Server 
+=
+
+1. On the server verify is openSSH is already deployed using the following Powershell command
+```
+Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH*'
+```
+
+2. If it not, use the following to deploy openSSH server
+```
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+```
+
+3. Then use the following script to start and configure the service
+```
+# Start the sshd service
+Start-Service sshd
+
+# OPTIONAL but recommended:
+Set-Service -Name sshd -StartupType 'Automatic'
+
+# Confirm the Firewall rule is configured. It should be created automatically by setup. Run the following to verify
+if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyContinue | Select-Object Name, Enabled)) {
+    Write-Output "Firewall Rule 'OpenSSH-Server-In-TCP' does not exist, creating it..."
+    New-NetFirewallRule -Name 'OpenSSH-Server-In-TCP' -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+} else {
+    Write-Output "Firewall rule 'OpenSSH-Server-In-TCP' has been created and exists."
+}
+```
+   
+5. Open Thinfinity Configuration Manager, select Profiles and Add Web Folder connection
+    
+6. On the form complete the following
+	- name: Web Folder
+	- Click "Visible" and "Open in new tab"
+	- Select Local Server
+	- Root Path: C:\prueba
+	- Select Ask for new credentials
+	- Accept the configuration
+
+7. Apply the configuration in the Configuration Manager
+
+8. Open the browser and select the "Web Folder" icon. A new tab will be open with the folder connection.
+
+9. Upload a file, edit and download if you want it.
+
+10. Review the folder in your server.
 
 
 
@@ -118,3 +177,4 @@ export to all namespaces
 Based on the following documentation
 =
 https://kb.cybelesoft.com/portal/en/kb/articles/guide-workspace-7-installation-license-registration#2_Download_and_Install
+https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell
