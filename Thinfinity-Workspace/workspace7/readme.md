@@ -1,63 +1,34 @@
 # Deploying Thinfinity Workspace 
 ### all by default 
 
-In this tutorial we will be deploying Test and Scan supply chain and GitLab 
-authentication and integration.  
-
-This tutorial is recorded in three (3) videos step by step in my youtube channel under the 
-name "Tanzu Application Platform Technical Workshop" from July 2023.
-
-- https://youtube.com/rubendillon
-
-
+In this tutorial we will be Thinfinity Worspace v7 with the default configuration. We will focus on the in the simplest installation, which involves deploying all components on a single server.
 
 Requirements
 ============
 
-1. An Azure subscription to deploy AKS
-3. An AWS subscription for route53 DNS service (we create latamteam.name domain)
-4. Tanzu Mission Control
-5. TAP 1.5.2 use Kubernetes v1.24, 1.25 and 1.26. We will be using 1.24.10 on a AKS 
-
-## NOTE: 
-We will be using lets Encrypt to obtain public free digital certificates.
-Using Lets Encrypt has a limitation.  A certificate for the same domain
-cannot be requested more than 5 times a week. That's why we must be
-careful when we modify the supply chain and install / uninstall
-continuously TAP.
-
+1. A virtual Machine with Windows Server 
 
 Environment
-=
+==========
 
 At the end of this step by step we will be using the following infrastructure
-- A DNS service in AWS (Route53) for the domain latamteam.name
-- An AKS platform (one kubernetes cluster)
-- Let's Encrypt certificates
-- Harbor running in harbor.latamteam.name
-- GitLab running in gitlab.latamteam.name
-- PostgreSQL running in pgs.latamteam.name
-- TAP 1.5.2 running in
-	- tap-gui.latamteam.name
-	- *.learning.latamteam.name
-- Applications running in
-  	- *.default.latamteam.name
+- A .....
 
 
-Create the DNS records
-======================
-1. For this environment we will be using DNS Route53 from AWS
+Configure the Windows virtual Machine
+=====================================
+1. For this environment we will be using a Windows Server 2022
     
-2. We create a DNS domain called latamteam.name for this environment
+2. Download the latest application from https://downloads.cybelesoft.com/thinfinity_remote_workspace_setup_x64.exe
     
-3. In that environment we will create the following records
-	- gitlab.latamteam.name
-	- harbor.latamteam.name
-	- notary.harbor.latamteam.name
-	- tap-gui.latamteam.name
-	- *.default.latamteam.name
-	- *.learning.latamteam.name
-	- pgs.latamteam.name
+3. Run the installer of the application and select the following configuration
+	All the components
+	The default directory
+	
+4. Once the deployment completes, we need to request the Community Serial Number. For that we need to run the
+Thinfinity Remote Desktop Configuration Manager
+
+5. 
 				
 
 Create the environment
@@ -260,3 +231,8 @@ Password: <your-tanzu-net-password>
 namespace: tap-install
 export to all namespaces
 ```
+
+
+Based on the following documentation
+=
+https://kb.cybelesoft.com/portal/en/kb/articles/guide-workspace-7-installation-license-registration#2_Download_and_Install
