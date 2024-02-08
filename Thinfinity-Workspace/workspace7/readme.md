@@ -9,6 +9,8 @@ Requirements
 1. A virtual Machine with Windows Server to deploy all the Thinfinity components
 2. A second virtual machine to be used as Application Server
 
+![alt text](https://github.com/RubenDillon/cybele/blob/main/Thinfinity-Workspace/workspace7/layout.png?raw=true)
+
 Environment
 ==========
 
