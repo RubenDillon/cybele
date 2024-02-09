@@ -1,5 +1,4 @@
 # Deploying Thinfinity Workspace 
-### All the configurations using defaults 
 
 In this tutorial we will be deploying Thinfinity Workspace v7 as an example of a typical Proof of Concept. 
 
