@@ -254,7 +254,7 @@ For this example we could use different kind of applications or at least, Window
 
 1. Deploy Microsoft office using the default configuration in the secondary server where RDS is running.
   
-2. Open Thinfinity Configuration Manager, select Profiles and Add RDP connection
+2. In the first server open Thinfinity Configuration Manager, select Profiles and Add RDP connection
     
 3. On the form complete the following
 	- name: WinWord
