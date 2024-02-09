@@ -312,7 +312,7 @@ Enabled=True
 
 3. Navigate up to   C:\Program Files\Thinfinity\Workspace and review the file web.settings.js 
 
-4. Review that the following instruction already exists
+4. Review that the following instruction already exists and is not commented
 	- webUsb: true 
 
 6. Open a connection to the User Portal and open a RDP connection
