@@ -250,9 +250,64 @@ Connect a RDP session to the RDS Host using the Secondary Broker
 
 4. Open the browser and select the "RDS session in RDS Host". A new tab will be open with the RDP connection.
 
+Configure and test a Remote application running in the RDS host
+=
+
+For this example we could use different kind of applications or at least, Windows Accesories like notepad. In my example I will use Microsoft Office components.
+
+
+1. Deploy Microsoft office using the default configuration in the secondary server where RDS is running.
+  
+2. Open Thinfinity Configuration Manager, select Profiles and Add RDP connection
+    
+3. On the form complete the following
+	- name: WinWord
+	- Click "open in new tab"
+	- Select RDP
+	- Computer: complete the IP address of the secondary server
+	- Select Ask for new credentials
+ 	- In the Program tab complete the following
+  		- Program Path and file name: "C:\Program Files (x86)\Microsoft Office\root\Office16\WINWORD.EXE"
+    		- Deselect "Show Windows Logon and Logout Screen"	 
+	- Accept the configuration
+
+4. Apply the configuration in the Configuration Manager
+
+6. Open the browser and select the "WinWord" icon. A new tab will be open with Microsoft Word.
+
+Another way to configure a Remote application running in the RDS host
+=
+  
+1. Open User interface and select the "+ New Profile" button
+    
+2. On the Wizard select Application and then select Remote Application
+
+3. Then select Another PC and complete in Address the FQDN or Address of the second server
+
+4. In the Choose the Application complete for example "C:\Program Files (x86)\Microsoft Office\root\Office16\EXCEL.EXE"
+
+5. In the Authentication select for example "Ask for new credentials"
+
+6. In the Profile Name for example use Excel
+
+7. When the profile appears in the UI, select Edit from the three points at upper left of the icon and modify the following.
+
+	- Broker Pool: pool1
+ 	- Enable the option "Open in new tab"
+  	- Disable the option "Show Windows Login and logout screen"
+   	- Enable the option "Remote FX"    
+
+9. Open the browser and select the "Excel" icon. A new tab will be open with Microsoft Excel.
+
+
+
+
 
 This Step by Step is based on the following documentation
 =
 - https://kb.cybelesoft.com/portal/en/kb/articles/guide-workspace-7-installation-license-registration#2_Download_and_Install
 - https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell
 - https://kb.cybelesoft.com/portal/en/kb/articles/how-to-install-a-secondary-broker#Introduction
+- https://aventistech.com/2018/12/27/deploy-windows-2019-rds-in-workgroup-without-ad/
+- https://learn.microsoft.com/en-us/archive/msdn-technet-forums/c1e4c4e5-3933-442f-85a4-34684d09824c
+- https://kb.cybelesoft.com/portal/en/kb/articles/how-to-create-a-remoteapp-pool-on-a-secondary-broker#Introduction
