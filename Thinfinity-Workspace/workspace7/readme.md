@@ -310,9 +310,14 @@ USB redirection allows you to use a local USB device in your endpoint.
 Enabled=True
 ```
 
-3. Navigate up to   C:\Program Files\Thinfinity\Workspace and edit the file web.settings.js 
+3. Navigate up to   C:\Program Files\Thinfinity\Workspace and review the file web.settings.js 
 
-4. We need to add the following 
+4. Review that the following instruction already exists
+	 webUsb: true 
+
+5. Open a connection to the User Portal and open a RDP connection
+
+6. At the top of the connection window, you have different options like Actions, File Transfer and Options. Inside Option you will see a new option in the menu called "Connect USB". There you will see the USB devices from your endpoint.
 
 
 This Step by Step is based on the following documentation
