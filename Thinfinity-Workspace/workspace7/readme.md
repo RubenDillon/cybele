@@ -271,6 +271,7 @@ For this example we could use different kind of applications or at least, Window
 
 6. Open the browser and select the "WinWord" icon. A new tab will be open with Microsoft Word.
 
+
 Another way to configure a Remote application running in the RDS host
 =
   
@@ -296,7 +297,22 @@ Another way to configure a Remote application running in the RDS host
 9. Open the browser and select the "Excel" icon. A new tab will be open with Microsoft Excel.
 
 
+USB Redirection
+=
 
+USB redirection allows you to use a local USB device in your endpoint. 
+
+1. In the second machine navigate up to  C:\Program Files\Thinfinity\Workspace\bin64
+
+2. Create a file called Thinfinity.Params.ini with the following
+```
+[USBRedirection]
+Enabled=True
+```
+
+3. Navigate up to   C:\Program Files\Thinfinity\Workspace and edit the file web.settings.js 
+
+4. We need to add the following 
 
 
 This Step by Step is based on the following documentation
@@ -307,3 +323,4 @@ This Step by Step is based on the following documentation
 - https://aventistech.com/2018/12/27/deploy-windows-2019-rds-in-workgroup-without-ad/
 - https://learn.microsoft.com/en-us/archive/msdn-technet-forums/c1e4c4e5-3933-442f-85a4-34684d09824c
 - https://kb.cybelesoft.com/portal/en/kb/articles/how-to-create-a-remoteapp-pool-on-a-secondary-broker#Introduction
+- https://thinfinity-remote-workspace-v7-docs.cybelesoft.com/advanced-settings/advanced-features/redirecting-devices/usb-redirection
