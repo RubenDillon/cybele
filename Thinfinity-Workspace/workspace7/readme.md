@@ -143,20 +143,16 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 5. Open Thinfinity Configuration Manager, select Profiles and Add Web Folder connection
     
 6. On the form complete the following
-	- name: Web Folder
+	- name: ssh
 	- Click "Visible" and "Open in new tab"
-	- Select Local Server
-	- Root Path: C:\prueba
+	- In the Address put the IP of this server and 22 in Port
+	- Select Enable Keep Alive and SSH
 	- Select Ask for new credentials
 	- Accept the configuration
 
 7. Apply the configuration in the Configuration Manager
 
-8. Open the browser and select the "Web Folder" icon. A new tab will be open with the folder connection.
-
-9. Upload a file, edit and download if you want it.
-
-10. Review the folder in your server.
+8. Open the browser and select the "ssh" icon. A new tab will be open with the ssh emulation.
 
 
 Improving security 
