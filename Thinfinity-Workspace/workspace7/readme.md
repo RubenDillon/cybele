@@ -7,7 +7,7 @@ Requirements
 ============
 
 1. A virtual Machine with Windows Server to deploy all the Thinfinity components
-2. A second virtual machine to be used as Application Server
+2. A second virtual machine to be used as Remote Desktop Session Host and Thinfinity Workplace Secondary Broker
 
 ![alt text](https://github.com/RubenDillon/cybele/blob/main/Thinfinity-Workspace/workspace7/layout.png?raw=true)
 
@@ -15,11 +15,11 @@ Environment
 ==========
 
 We will be using the following configuration
-- The Thinfinity server will have
+- The first server will be used as Thinfinity Workspace server 
 	- 2 vCPU
  	- 4 GB RAM
   	- Windows Server 2022  
-- The application Server will have
+- The second server will be used as Secondary Broker Server and Microsoft RDS 
 	- 2 vCPU
  	- 4 GB RAM
   	- Windows Server 2022 
@@ -188,9 +188,71 @@ Create your own connections
 3. Select the profile and open RDP connection with the server 	
 
 
+Deploying a Secondary Broker (in the second machine)
+=
+
+1. For this deployment, we will be using the second machine as a Remote Desktop Session Host and Secondary Broker
+
+2. Deploy RDS as Standard Deployment in the secondary server from the Server Manager. Configure RDS using Role Services and select the following
+   	- Remote Desktop Session Host
+   	- Remote Desktop Licensing
+
+3.  Activate RDS. As we are using a RDS without a domain, we need to do some steps manually
+	- open the registry editor
+ 	- modify the following registry key
+  		- Computer Configuration\ Administrative Templates\ Windows Components\ Remote Desktop Services\ Remote Desktop Session Host\ Licensing\
+    		- Use the specified Remote Desktop licensing servers     Enabled and Localhost as server
+      		- Set the Remote Desktop licensing mode     Enabled and select Per Device
+
+5. Using the Remote Desktop Services License Manager, use the Install Licenses option to define Per Device CAL licenses (use all by default)
+
+6. Create a user and asign it to the "Remote Desktop User". Test the connection to the server using this user.
+
+5. Download de Thinfinity installer https://downloads.cybelesoft.com/thinfinity_remote_workspace_setup_x64.exe
+
+6. Follow the Wizard and select "Broker and HTML5 Services" option.
+
+7. Access the Registry Editor and navigate to the following key
+	- Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Cybele Software\Thinfinity\Wolrkspace
+
+8. Modify "BrokerRole" to secondary
+
+9. Open the Configuration Manager of the first server, and copy the "Network ID" from the General Tab
+
+10. Now go to the "Broker" tab and select Secondary Brokers and click ADD button
+	- Define the name of the pool
+ 	- Define the amount of users
+
+11. In the second server, open the Configuration Manager and in "General" tab complete the following information
+	- Pool, the name defined in the previous step
+ 	- Network ID, complete the information with the info obtained from the previous step
+  	- Gateway list, complete with the address of the first server (http://server:9443)   
+
+12. Review the log using the "Review Log" button. You will notice something like the following
+	Connecting to http://server:9443
+	Registerd on http://server:9443
+
+
+Connect a RDP session to the RDS Host using the Secondary Broker 
+=
+
+1. Open Thinfinity Configuration Manager from the first server, select Profiles and Add RDP connection
+    
+2. On the form complete the following
+	- name: RDP session in RDS Host
+	- Click "open in new tab"
+	- Select RDP
+	- Computer: complete the second IP address
+	- Select Use the authenticated credentials
+	- Accept the configuration
+
+3. Apply the configuration in the Configuration Manager
+
+4. Open the browser and select the "RDS session in RDS Host". A new tab will be open with the RDP connection.
 
 
 This Step by Step is based on the following documentation
 =
 - https://kb.cybelesoft.com/portal/en/kb/articles/guide-workspace-7-installation-license-registration#2_Download_and_Install
 - https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell
+- https://kb.cybelesoft.com/portal/en/kb/articles/how-to-install-a-secondary-broker#Introduction
