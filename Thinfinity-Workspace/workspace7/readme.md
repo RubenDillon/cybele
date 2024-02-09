@@ -322,7 +322,7 @@ Enabled=True
 4. Edit the file and include the following
 	- webUsb: true
 
-5. The part where we need to modify the file needs looks like the following
+5. The part where we need to modify the file should look like the following
 ```
 var settings = {
 	// Settings available for RDP connections
