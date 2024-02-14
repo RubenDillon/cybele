@@ -51,7 +51,7 @@ Configure the Server
 1. From the Thinfinity Configuration Manager select VirtualUI tab.
 
 2. Select Create users on demand and complete the following
-  - "virtualui" as Username prefix
+     - "virtualui" as Username prefix
 
 3. If you will be using the application in a pool, you need to go Broker tab}
 
@@ -68,11 +68,11 @@ Configure the Profile
 1. From the Thinfinity Configuration Manager select to Add a "VirtualUI app" profile.
 
 2. Complete with the following information in the General Tab
-  - Name: Contact Access Database
-  - Click "Visible" and "Open in new tab"
-  - Program path and file name: C:\Program Files(x86)\Microsoft Office\root\Office16\MSACCESS.EXE
-  - Arguments: C:\access\VirtualUI_Access.accdb (where you copy the application)  and "Allow Browser arguments"
-  - Start in : complete the following C:\Program Files(x86)\Microsoft Office\root\Office16
+     - Name: Contact Access Database
+     - Click "Visible" and "Open in new tab"
+     - Program path and file name: C:\Program Files(x86)\Microsoft Office\root\Office16\MSACCESS.EXE
+     - Arguments: C:\access\VirtualUI_Access.accdb (where you copy the application)  and "Allow Browser arguments"
+     - Start in : complete the following C:\Program Files(x86)\Microsoft Office\root\Office16
 
 3. From the Credentials use the defaults (Use server´s account)
 
