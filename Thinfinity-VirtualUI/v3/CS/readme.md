@@ -9,7 +9,7 @@ We define the following scenario
 Download and configure the application
 =
 
-1. Download the example https://www.cybelesoft.com/es/thinfinity/virtualui/tutorials/ or use your own Access application.
+1. Download the example https://www.cybelesoft.com/es/thinfinity/virtualui/tutorials/ or use your own application.
    
 2. Unzip the file and open it using for example Visual Studio 2022
 
