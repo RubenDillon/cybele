@@ -92,26 +92,43 @@ Modify your own application to use VirtualUI
 
 4. Right click the file Thinfinity.VirtualUI.cs and select "Include in the project"
 
-5. Open program.cs file and add new Cybele.Thinfinity... command. The file need to looks like the following
+5. Open Form1.cs file. The file need to looks like the following
 ```
-...
-...
- static void Main()
- {
-     new Cybele.Thinfinity.VirtualUI().Start();
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Cybele;
+using Cybele.Thinfinity;
 
-     Application.EnableVisualStyles();
-     Application.SetCompatibleTextRenderingDefault(false);
-     Application.Run(new Form1());
- }
-...
-...
+namespace HelloWorld
+{
+    public partial class Form1 : Form
+    {
+
+        public VirtualUI vui;
+        public Form1()
+        {
+            vui = new VirtualUI();
+            vui.Start();
+            vui.StdDialogs = true;
+
+            InitializeComponent();
+        }
+    }
+}
 
 ```
 
 6. Save the file and run the application
 
 7. You will receive a message saying that we need to run the windows application and a web mode, accept that and you will see the application running in windows form (like you already watched) and in a web browser.
+   
 
 Publishing your own application using VirtualUI in Thinfinity Workplace
 =
