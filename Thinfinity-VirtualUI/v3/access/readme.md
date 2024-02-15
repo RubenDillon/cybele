@@ -1,10 +1,10 @@
-# Deploying Thinfinity VirtualUI in Microsoft Access
+# Using Thinfinity VirtualUI with Microsoft Access
 
-In this tutorial we will be configuring Thinfinity Virtual UI as an example of a typical use in a Access application. 
+In this tutorial we will be configuring Thinfinity Virtual UI with a Microsoft Access application. We will expose a Microsoft Access application to the internet using Thinfinity Workplace. 
 
 We define the following scenario
-- We have a Microsoft Access application already working or use the example of this git
-- We have a machine where we could configure Virtual UI to use it as PoC
+- We have a Microsoft Access application already working or we will be using the example of this git
+- We already have deployed Thinfinity Workplace 
 
 Download and configure the application
 =
@@ -34,7 +34,7 @@ Sub StartVirtualUI()
 End Sub
 ```
 
-5. The main module of this application is "Form_Contact_List". In the main module ( Form_Load() )we need to add the call to this module and needs to looks like the folllowing
+5. The main module of this application is "Form_Contact_List". In the main module ( Form_Load() ) we need to add the call to this module and needs to looks like the folllowing
 ```
 Private Sub Form_Load()
     StartVirtualUI
