@@ -9,7 +9,7 @@ We define the following scenario
 Download and configure the virtual UI
 =
 
-1. Ask to your Account Manager for the VirtualUI trial and download a trial from the following link https://www.cybelesoft.com/es/thinfinity/virtualui/
+1. Ask to your Account Manager for the VirtualUI trial key and download a trial from the following link https://www.cybelesoft.com/es/thinfinity/virtualui/
 
 2. Run the VirtualUI to deploy the application but only select "Development environment" using the defaults (C:\Program Files\Thinfinity\VirtualUI)
 
