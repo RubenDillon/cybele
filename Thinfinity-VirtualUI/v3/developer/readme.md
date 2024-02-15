@@ -1,9 +1,9 @@
-# Deploying Thinfinity VirtualUI in the Developer workstation
+# Using a Developer workstation with Thinfinity Virtual UI 
 
-In this tutorial we will be deploying and configuring Thinfinity Virtual UI in the developer workstation. 
+In this tutorial we will be deploying and configuring Thinfinity Virtual UI in a developer workstation. 
 
 We define the following scenario
-- We have a Windows workstation to be used as developer with Visual Studio 2022 Community Edition 
+- We have a Windows workstation used by a developer with Visual Studio 2022 Community Edition 
 - We have the Thinfinity Workplace environment already deployed 
 
 Download and configure the virtual UI
@@ -17,9 +17,9 @@ Download and configure the virtual UI
 Test an example
 =
 
-1. IF you don´t have .Net Framework 4.52 Developer Pack already deployed, install it because in this example we need an old .NET framework to show a real life situation... how to provide a quick modern interface to an old application.
+1. IF you don´t have .Net Framework 4.8 Developer Pack already deployed, install it because in this example we need an old .NET framework to show a real life situation... how to provide a quick modern interface to an old application.
 
-2. Download the VB .NET example from https://www.cybelesoft.com/thinfinity/virtualui/tutorials/
+2. Download the Visual C# .NET example from https://www.cybelesoft.com/thinfinity/virtualui/tutorials/
 
 3. Unzip the file
 
@@ -42,7 +42,7 @@ Deploy and access the example
 4. Then we need to open the Thinfinity Configuration manager and create a new profile selecting "Add VirtualUI" app
 
 5. Complete the form with the following information
-    - Name : VB NET modificated
+    - Name : C# example
     - Check the option "Open in new tab" to start the app in a separated tab
     - Program file name: where you copy the exe file
     - Start in: the folder where the exe were copied
