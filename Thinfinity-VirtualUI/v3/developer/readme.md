@@ -14,7 +14,7 @@ Download and configure the virtual UI
 2. Run the VirtualUI to deploy the application but only select "Development environment" using the defaults (C:\Program Files\Thinfinity\VirtualUI)
 
 
-Test an example
+Test an example ( in C# )
 =
 
 1. IF you don´t have .Net Framework 4.8 Developer Pack already deployed, install it because in this example we need an old .NET framework to show a real life situation... how to provide a quick modern interface to an old application.
@@ -52,7 +52,7 @@ Deploy and access the example
 
 7. Connect to the environment and test the new connection
 
-Create your own application
+Create your own application (in C# )
 =
 
 1. Open Visual Studio and select "Create a new project..."
@@ -147,3 +147,89 @@ Publishing your own application using VirtualUI in Thinfinity Workplace
 6. Apply the changes in the Thinfinity Configuration Manager
 
 7. Connect to the environment and test the new connection
+
+
+Create your own application (in Visual Basic .NET )
+=
+
+1. Open Visual Studio and select "Create a new project..."
+
+2. For this example we will be using the following data
+    - Visual Basic .NET
+    - Windows
+    - Desktop
+  
+3. Select "Windows Forms App (.Net Framework)" option
+
+4.  Complete the following
+    - Project Name: WindowsForm
+    - Location: your default location
+    - Solution name: WindowsForm
+
+5. Select .NET 4.8 
+
+6. The project will be created and you have the Designer for the Form1.vb open
+
+7. Complete what you want into the form using the Toolbox, for example something easy like add a checkbox, a checked list box, a calendar, a Progress Bar and so on..
+
+8. Save Form1
+
+9. Run and test the application
+
+10. Close Visual Studio
+
+Modify your own application to use VirtualUI
+=
+
+1. Copy the file Thinfinity.VirtualUI.vb from the folder c:\Program Files\Thinfinity\VirtualUI\Dev\dotNet\ in the project folder.
+
+2. Open Visual Studio with your project
+
+3. (Optional) Right-click on the "WindowsFormApp" in the 'Solution Explorer' panel and then select 'Add' - 'Existing Item'. Look for the Thinfinity.VirtualUI.vb file, which is typically located in c:\Program Files\Thinfinity\VirtualUI\Dev\dotNet\.
+
+4. Right click the file Thinfinity.VirtualUI.cs and select "Include in the project"
+
+5. Open Form1.vb file. The file need to looks like the following
+```
+Public Class Form1
+
+
+    Private Vui As Cybele.Thinfinity.VirtualUI
+
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Vui = New Cybele.Thinfinity.VirtualUI()
+        Vui.Start(60)
+    End Sub
+
+
+
+
+End Class
+
+```
+
+6. Save the file and run the application
+
+7. You will receive a message saying that we need to run the windows application and a web mode, accept that and you will see the application running in windows form (like you already watched) and in a web browser.
+   
+
+Publishing your own application using VirtualUI in Thinfinity Workplace
+=
+
+1. Copy the WindowsFormApp.exe file from the folder <your folder>\WindowsFormApp\WindowsFormApp\bin\Debug in a folder in the Thinfinity server.
+
+2.Then we need to open the Thinfinity Configuration manager and create a new profile selecting "Add VirtualUI" app
+
+3. Complete the form with the following information
+    - Name : Winforms VB NET
+    - Check the option "Open in new tab" to start the app in a separated tab
+    - Program file name: where you copy the exe file
+    - Start in: the folder where the exe were copied
+    - Accept the defaults
+  
+6. Apply the changes in the Thinfinity Configuration Manager
+
+7. Connect to the environment and test the new connection
+
+
