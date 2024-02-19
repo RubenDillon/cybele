@@ -19,8 +19,9 @@ Create Thinfinity as Application on Azure
 
 4. Copy the "value" field
 
-5. Go to the Thinfinity Configuration and create a connection. Go to the "Authentication" tab and select Methods, then "Add", "OAuth 2.0" and Azure. Complete the following
-   General tab
+5. Go to the Thinfinity Configuration and create a connection.
+
+6. Go to the "Authentication" tab and select Methods, then "Add", "OAuth 2.0" and Azure. Complete the following
     - General tab
         - Client ID: use the Application (client) ID from the last step
         - Client Secret: use the "value" that we obtain in the last step
@@ -31,4 +32,4 @@ Create Thinfinity as Application on Azure
 
 
 
-7.   
+8.   
