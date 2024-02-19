@@ -23,10 +23,10 @@ Require the certificate
 1. We will be using a certificate from Let´s Encrypt. To facilitate the steps, we will be using win-acme from www.win-acme.com
 
 2. Complete the following steps in the Thinfinity primary broker
-       - Downlad the application and start it
-       - Select to create a full certificate (option M from the menu)
-       - Select Manual input (option 2)
-       - Serve verification files from memory (option 2)
+              - Downlad the application and start it
+              - Select to create a full certificate (option M from the menu)
+              - Select Manual input (option 2)
+              - Serve verification files from memory (option 2)
 
 
 
