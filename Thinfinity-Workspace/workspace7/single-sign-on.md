@@ -1,15 +1,14 @@
 # Using Azure for Single Sign on 
 
-In this tutorial we will be reviewing how to secure the connection using https. 
+In this tutorial we will be reviewing how to use Azure AD with Thinfinity Workplace. 
 
 We define the following scenario
 - We have a Workspace already running 
-- We will be using a free DNS domain
-- We will be using a free public certificate
+- We have a Azure subscription
 
-Require a DNS hostname
+Create Thinfinity as Application on Azure
 =
 
-1. We will be using a DNS hostname from No-IP. We could use any provider, but in this step by step we will be using NO-IP domain.
+1. From the Azure portal select Microsoft Entra ID
 
 2. Open www.no
