@@ -29,7 +29,11 @@ Create Thinfinity as Application on Azure
         - Authorization URL: modify the text and replace [DirectoryID] with the Directory (tenant) ID from the Azure Portal
         - Token Validation Server URL: do the same
 
+7. Under "Authentication" select Mappings and create a map between accounts. Complete the following
+     - In Authentication ID Mask select Add and in the wizard complete with the following
+         - ID Mask: *
+         - Method: select Azure (the method created in the last step) 
 
+8. Now we need to select the local account in "Associated Permissions", for that select Add and use the administrator    
 
-
-8.   
+9. Test the connectivity with the portal
