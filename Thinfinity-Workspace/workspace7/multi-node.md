@@ -16,14 +16,14 @@ Requirements
 
 ![alt text](https://github.com/RubenDillon/cybele/blob/main/Thinfinity-Workspace/workspace7/two-nodes.jpg?raw=true)
 
-Create the Gateway
+Create the Reverse Gateway
 =====================================
 1. For the deployment of the gateway we will be using a Windows Server 2022
     
 2. Download the latest application from https://downloads.cybelesoft.com/thinfinity_remote_workspace_setup_x64.exe
     
 3. Run the installer of the application and select the following configuration
-	- Gateway
+	- Reverse Gateway
 	- The default directory
 	
 4. Once the deployment completes, we need to request the Trial Serial Number. For that we need to run the
@@ -33,7 +33,6 @@ Thinfinity Remote Desktop Configuration Manager and select the appropiate option
    
 6. Select the offline or online validation and leave blank the options for the Primary and Second Licence server.
 
-7. When the deployment finish, you will have the Configuration Manager application open.
 
 Create the Primary Broker
 =====================================
@@ -54,10 +53,57 @@ Thinfinity Remote Desktop Configuration Manager and select the appropiate option
 
 7. When the deployment finish, you will have the Configuration Manager application open.
 
-8. You could connect to http://localhost:9443 and connects to the Thinfinity Remote Workplace portal.
+8. Now you need to modify the Network ID (use the ID from the Gateway) and add the first node inside Gateway List.
 
-9. If you have exposed this server to the internet, you could select the option "Enable External access in Windows firewall" from the Configuration Manager
+9. Now, we could test Thinfinity Workplace against the first node using http://<first node>:9443
         
+
+Create the Secondary Broker
+=====================================
+
+
+1. For this deployment, we will be using the third machine as a Remote Desktop Session Host and Secondary Broker
+
+2. Deploy RDS as Standard Deployment in the secondary server from the Server Manager. Configure RDS using Role Services and select the following
+   	- Remote Desktop Session Host
+   	- Remote Desktop Licensing
+
+3.  Activate RDS. As we are using a RDS without a domain, we need to do some steps manually
+	- open the Group Policy Editor (gpedit.msc)
+ 	- modify the following registry key
+  		- Computer Configuration\ Administrative Templates\ Windows Components\ Remote Desktop Services\ Remote Desktop Session Host\ Licensing\
+    		- Use the specified Remote Desktop licensing servers     Enabled and Localhost as server
+      		- Set the Remote Desktop licensing mode     Enabled and select Per Device
+
+5. Using the Remote Desktop Services License Manager, use the Install Licenses option to define Per Device CAL licenses (use all by default)
+
+6. Create a user and asign it to the "Remote Desktop User". Test the connection to the server using this user.
+
+5. Download de Thinfinity installer https://downloads.cybelesoft.com/thinfinity_remote_workspace_setup_x64.exe
+
+6. Follow the Wizard and select "Broker and HTML5 Services" option.
+
+7. Access the Registry Editor and navigate to the following key
+	- Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Cybele Software\Thinfinity\Wolrkspace
+
+8. Modify "BrokerRole" to secondary
+
+9. Open the Configuration Manager of the first server, and copy the "Network ID" from the General Tab
+
+10. Now go to the "Broker" tab and select Secondary Brokers and click ADD button
+	- Define the name of the pool
+ 	- Define the amount of users
+
+11. In the second server, open the Configuration Manager and in "General" tab complete the following information
+	- Pool, the name defined in the previous step
+ 	- Network ID, complete the information with the info obtained from the previous step
+  	- Gateway list, complete with the address of the first server (http://server:9443)   
+
+12. Review the log using the "Review Log" button. You will notice something like the following
+	Connecting to http://server:9443
+	Registerd on http://server:9443
+
+
 
 Configure and test a connection to the local intranet
 =
@@ -195,49 +241,6 @@ Create your own connections
 3. Select the profile and open RDP connection with the server 	
 
 
-Deploying a Secondary Broker (in the second machine)
-=
-
-1. For this deployment, we will be using the second machine as a Remote Desktop Session Host and Secondary Broker
-
-2. Deploy RDS as Standard Deployment in the secondary server from the Server Manager. Configure RDS using Role Services and select the following
-   	- Remote Desktop Session Host
-   	- Remote Desktop Licensing
-
-3.  Activate RDS. As we are using a RDS without a domain, we need to do some steps manually
-	- open the registry editor
- 	- modify the following registry key
-  		- Computer Configuration\ Administrative Templates\ Windows Components\ Remote Desktop Services\ Remote Desktop Session Host\ Licensing\
-    		- Use the specified Remote Desktop licensing servers     Enabled and Localhost as server
-      		- Set the Remote Desktop licensing mode     Enabled and select Per Device
-
-5. Using the Remote Desktop Services License Manager, use the Install Licenses option to define Per Device CAL licenses (use all by default)
-
-6. Create a user and asign it to the "Remote Desktop User". Test the connection to the server using this user.
-
-5. Download de Thinfinity installer https://downloads.cybelesoft.com/thinfinity_remote_workspace_setup_x64.exe
-
-6. Follow the Wizard and select "Broker and HTML5 Services" option.
-
-7. Access the Registry Editor and navigate to the following key
-	- Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Cybele Software\Thinfinity\Wolrkspace
-
-8. Modify "BrokerRole" to secondary
-
-9. Open the Configuration Manager of the first server, and copy the "Network ID" from the General Tab
-
-10. Now go to the "Broker" tab and select Secondary Brokers and click ADD button
-	- Define the name of the pool
- 	- Define the amount of users
-
-11. In the second server, open the Configuration Manager and in "General" tab complete the following information
-	- Pool, the name defined in the previous step
- 	- Network ID, complete the information with the info obtained from the previous step
-  	- Gateway list, complete with the address of the first server (http://server:9443)   
-
-12. Review the log using the "Review Log" button. You will notice something like the following
-	Connecting to http://server:9443
-	Registerd on http://server:9443
 
 
 Connect a RDP session to the RDS Host using the Secondary Broker 
