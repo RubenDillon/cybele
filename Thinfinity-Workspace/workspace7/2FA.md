@@ -3,12 +3,12 @@
 In this tutorial we will be deploying second factor of authentication to Thinfinity Workplace v7. 
 
 We define the following scenario
-- We have already deployed Thinfinity Workplace
+- We have already deployed Thinfinity Workspace
 - We will be using Duo and OneLogin 2FA Security Login
 
  
 
-DUO configuration
+DUO and Thinfinity Workspace configuration
 =
 
 1. Complete the steps to create a DUO account following the steps from the following link https://duo.com/docs/onelogin
@@ -29,3 +29,11 @@ DUO configuration
 - API Hostname to API Hostname
 
 8.  Apply the changes
+
+9. Go to Methods and select Windows Logon
+
+10. Modify the configuration where Displays 2FA Method. Select DUO
+
+11. Apply the changes
+
+12. Test the access to Thinfinity Dashboard. Now you will ask to authenticate with DUO
