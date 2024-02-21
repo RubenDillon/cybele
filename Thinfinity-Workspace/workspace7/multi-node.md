@@ -35,7 +35,7 @@ Thinfinity Remote Desktop Configuration Manager and select the appropiate option
 
 7. When the deployment finish, you will have the Configuration Manager application open.
 
-Create the Broker
+Create the Primary Broker
 =====================================
 1. For the deployment of the broker we will be using a Windows Server 2022 in the second virtual machine.
     
