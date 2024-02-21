@@ -1,16 +1,31 @@
-# Deploying Thinfinity Workspace 
+# Integrate 2FA security to Thinfinity Workplace 
 
-In this tutorial we will be deploying Thinfinity Workspace v7 as an example of a typical Proof of Concept. 
+In this tutorial we will be deploying second factor of authentication to Thinfinity Workplace v7. 
 
 We define the following scenario
-- We have a principal datacenter with the main infrastructure 
-- We have a secondary site where will have to access some applications
+- We have already deployed Thinfinity Workplace
+- We will be using Duo and OneLogin 2FA Security Login
 
-In this PoC we start to deploy the simplest configuration, everything in one virtual machine because usually we start very limited in resources. In that virtual machine we will simulate the Web Server of the intranet, a file sharing and will provide administrative access to administrators (RDP and SSH). Everything without the need to open any port to internet.
+ 
 
-Then we simulate a secondary site and with that, the needs to use a Secondary Broker to connect both sites. In that virtual machine we simulate a Remote Desktop Server where we will be hosting applications that will be accessed from outside. 
+DUO configuration
+=
 
-Requirements
-============
+1. Complete the steps to create a DUO account following the steps from the following link https://duo.com/docs/onelogin
 
-1. A virtual Machine
+2. Download and configure Duo Mobile in your smartphone
+
+3. Access the Duo Dashboard
+
+4. Go to Applications and then to "Protect an Application"
+
+5. Search for  "Web SDK" and select Protect
+
+6. Open the Thinfinity Configuration Manager, go to Authentication, select 2FA, press button ADD and then "DUO" 
+
+7.  Complete the form with the following mapping
+- Client ID to Integration Key
+- Client secret to Secret Key
+- API Hostname to API Hostname
+
+8.  Apply the changes
