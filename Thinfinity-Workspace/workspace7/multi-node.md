@@ -1,6 +1,6 @@
-# Deploying Thinfinity Workspace 
+# Deploying Thinfinity Workspace in a multi node infrastructure
 
-In this tutorial we will be deploying Thinfinity Workspace v7 as an example of a typical Proof of Concept but with differents nodes. 
+In this tutorial we will be deploying Thinfinity Workspace v7 as an example of a typical Proof of Concept but with multiple nodes. 
 
 We define the following scenario
 - We have a DMZ where we deploy the Gateway
