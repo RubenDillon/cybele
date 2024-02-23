@@ -3,9 +3,9 @@
 In this tutorial we will be deploying Thinfinity Workspace v7 as an example of a typical Proof of Concept but with multiple nodes. 
 
 We define the following scenario
-- We have a DMZ where we deploy the Gateway
-- We have an internal secure network where we will deploy the primary broker 
-- We have a secondary broker where we will have a terminal server (RDS)
+- We have a DMZ where we deploy the Gateway (in our example we will be using 198.71.59.129)
+- We have an internal secure network where we will deploy the primary broker (in our example we will be using 198.71.59.151)
+- We have a secondary broker where we will have a terminal server (RDS) (in our example we will be using 216.225.206.8)
 
 Requirements
 ============
@@ -17,8 +17,8 @@ Requirements
 ![alt text](https://github.com/RubenDillon/cybele/blob/main/Thinfinity-Workspace/workspace7/two-nodes.jpg?raw=true)
 
 Create the Reverse Gateway
-=====================================
-1. For the deployment of the gateway we will be using a Windows Server 2022
+=
+1. For the deployment of the gateway we will be using a Windows Server 2022 in a DMZ zone.
     
 2. Download the latest application from https://downloads.cybelesoft.com/thinfinity_remote_workspace_setup_x64.exe
     
@@ -35,8 +35,8 @@ Thinfinity Remote Desktop Configuration Manager and select the appropiate option
 
 
 Create the Primary Broker
-=====================================
-1. For the deployment of the broker we will be using a Windows Server 2022 in the second virtual machine.
+=
+1. For the deployment of the broker we will be using a Windows Server 2022 in the second virtual machine in the internal (Secure) network.
     
 2. Download the latest application from https://downloads.cybelesoft.com/thinfinity_remote_workspace_setup_x64.exe
     
@@ -53,16 +53,15 @@ Thinfinity Remote Desktop Configuration Manager and select the appropiate option
 
 7. When the deployment finish, you will have the Configuration Manager application open.
 
-8. Now you need to modify the Network ID (use the ID from the Gateway) and add the first node inside Gateway List.
+8. Now you need to modify the Network ID (use the ID from the Gateway) and add the first node inside Gateway List using the following format http://198.71.59.129:9443
 
-9. Now, we could test Thinfinity Workplace against the first node using http://<first node>:9443
+9. Now, we could test Thinfinity Workplace against the first node using http://198.71.59.129:9443
         
 
 Create the Secondary Broker
-=====================================
+=
 
-
-1. For this deployment, we will be using the third machine as a Remote Desktop Session Host and Secondary Broker
+1. For this deployment, we will be using the third machine as a Remote Desktop Session Host and Secondary Broker in the internal (Secure) network.
 
 2. Deploy RDS as Standard Deployment in the secondary server from the Server Manager. Configure RDS using Role Services and select the following
    	- Remote Desktop Session Host
@@ -75,81 +74,83 @@ Create the Secondary Broker
     		- Use the specified Remote Desktop licensing servers     Enabled and Localhost as server
       		- Set the Remote Desktop licensing mode     Enabled and select Per Device
 
-5. Using the Remote Desktop Services License Manager, use the Install Licenses option to define Per Device CAL licenses (use all by default)
+5. Using the Remote Desktop Services License Manager, use the Install Licenses option to
+	- activate the server
+ 	- use academic type licencing and use for example 1234567 as licence key 
+ 	- define Per Device CAL licenses (use all by default)
 
 6. Create a user and asign it to the "Remote Desktop User". Test the connection to the server using this user.
 
-5. Download de Thinfinity installer https://downloads.cybelesoft.com/thinfinity_remote_workspace_setup_x64.exe
+7. Download de Thinfinity installer https://downloads.cybelesoft.com/thinfinity_remote_workspace_setup_x64.exe
 
-6. Follow the Wizard and select "Broker and HTML5 Services" option.
+8. Follow the Wizard and select "Broker and HTML5 Services" option.
 
-7. Access the Registry Editor and navigate to the following key
+10. Access the Registry Editor and navigate to the following key
 	- Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Cybele Software\Thinfinity\Wolrkspace
 
-8. Modify "BrokerRole" to secondary
+11. Modify "BrokerRole" to secondary
 
-9. Open the Configuration Manager of the first server, and copy the "Network ID" from the General Tab
+12. Open the Configuration Manager of the first server, and copy the "Network ID" from the General Tab
 
 10. Now go to the "Broker" tab and select Secondary Brokers and click ADD button
-	- Define the name of the pool
- 	- Define the amount of users
+	- Define the name of the pool (for example pool1)
+ 	- Define the amount of users (use the default)
 
-11. In the second server, open the Configuration Manager and in "General" tab complete the following information
-	- Pool, the name defined in the previous step
- 	- Network ID, complete the information with the info obtained from the previous step
-  	- Gateway list, complete with the address of the first server (http://server:9443)   
+11. In the second server (the Primary Broker), open the Configuration Manager and in "General" tab under Secondary Broker complete the following information
+	- Pool, the name defined in the previous step (pool1)
+ 	- Network ID, complete the information with the info from the gateway server
+  	- Gateway list, complete with the address of the gateway server (http://198.71.59.129:9443)   
 
-12. Review the log using the "Review Log" button. You will notice something like the following
-	Connecting to http://server:9443
-	Registerd on http://server:9443
-
-
-
-Configure and test a connection to the local intranet
-=
-1. Deploy IIS in the Windows server with all the defaults
-	- Open Server Manager
-	- Select Deploy Server Roles and Features on the local server
-	- Select Web Server (IIS)
-	- Accept all by default 
-            
-2. Open Thinfinity Configuration Manager, select Profiles and Add web link
-    
-3. On the form complete the following
-	- name: intranet
-	- click "open in a new tab"
-	- link: localhost
-	- Accept the configuration
-
-4. Apply the configuration in the Configuration Manager
-
-5. Open the browser and select the "intranet" icon. A new tab will be open with the IIS Welcome page.
+12. Connect to the third server (Secondary Broker) and review the log using the "Review Log" button. You will notice something like the following
+	Connecting to http://192.71.59.129:9443
+	Registerd on http://192.71.59.129:9443
 
 
-Configure and test a RDP connection to the local server
+
+Configure and test the environment
 =
             
-1. Open Thinfinity Configuration Manager, select Profiles and Add RDP connection
+1. Open Thinfinity Configuration Manager in the Primary Broker, select "Access Profiles" and Add RDP
     
 2. On the form complete the following
-	- name: Windows Server
-	- Click "open in new tab"
-	- Select RDP
-	- Computer: complete your local IP address
-	- Select Ask for new credentials
+	- name: Notepad
+	- click "open in a new tab"
+	- link: 198.71.59.129
+ 	- under Program select
+  		- On Connection: RemoteApp
+    		- On Program Path.. notepad.exe  
 	- Accept the configuration
 
 3. Apply the configuration in the Configuration Manager
 
-4. Open the browser and select the "Windows Server" icon. A new tab will be open with the RDP connection.
+4. Open the browser, connect to htt://http://198.71.59.129:9443 and select the "Notepad" icon. A new tab will be open with notepad.
+
+
+Configure and test a RDP connection to the Secondary broker (the RDS Host Server)
+=
+            
+1. Open Thinfinity Configuration Manager in the Primary Broker, select "Access Profiles" and Add RDP connection
+    
+2. On the form complete the following
+	- name: RDP
+	- Click "open in new tab"
+	- Select RDP
+	- Computer: 127.0.0.1
+ 	- Broker Pool: complete pool1
+	- Select Ask for new credentials (because we need to use a local user who have RDS permissions)
+	- Accept the configuration
+
+3. Apply the configuration in the Configuration Manager
+
+4. Open the browser, connect to htt://http://198.71.59.129:9443 and select the "RDS" icon. A new tab will be open asking for credentials and then you will have the RDP connection.
 
 
 Configure and test a Web Folder sharing 
 =
 
-1. On the server create a folder in the root called "Prueba"
+1. On the Primary Broker server create a folder in the root called "Prueba"
    
-2. Open Thinfinity Configuration Manager, select Profiles and Add Web Folder connection
+2. Open Thinfinity Configuration Manager in the Primary Broker server, select Profiles and Add Web Folder connection
     
 3. On the form complete the following
 	- name: Web Folder
@@ -161,16 +162,17 @@ Configure and test a Web Folder sharing
 
 4. Apply the configuration in the Configuration Manager
 
-5. Open the browser and select the "Web Folder" icon. A new tab will be open with the folder connection.
+5. Open the browser, connect to htt://http://198.71.59.129:9443 and select the "Web Folder" icon. A new tab will be open with the folder connection.
 
 6. Upload a file, edit and download if you want it.
 
 7. Review the folder in your server.
 
-Configure and test a SSH to Windows Server 
+
+Configure and test a SSH to Primary Broker 
 =
 
-1. On the server verify is openSSH is already deployed using the following Powershell command
+1. On the Primary Broker server verify is openSSH is already deployed using the following Powershell command
 ```
 Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH*'
 ```
@@ -197,7 +199,7 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 }
 ```
    
-5. Open Thinfinity Configuration Manager, select Profiles and Add Web Folder connection
+5. Open Thinfinity Configuration Manager in the Primary Broker, select Profiles and Add Web Folder connection
     
 6. On the form complete the following
 	- name: ssh
@@ -209,19 +211,19 @@ if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyCon
 
 7. Apply the configuration in the Configuration Manager
 
-8. Open the browser and select the "ssh" icon. A new tab will be open with the ssh emulation.
+8. Open the browser, connect to htt://http://198.71.59.129:9443 and select the "ssh" icon. A new tab will be open with the ssh emulation.
 
 
 Improving security 
 =
 
-1. On the Configuration Manager go to Authentication and deselect the "Allow anonymous access"
+1. On the Configuration Manager of the Gateway server go to the protection tab, select "Enable brute force detection"
 
-2. On the protection tab, select "Enable brute force detection"
+2. On the Configuration Manager of the Primary Broker go to Authentication and deselect the "Allow anonymous access"
 
 3. If you want to some profile / connection will be available only for a specific Windows group, edit that profile and select Permissions and add that group to that profile.
 
-4. Logout the Thinfinity Workspace and log with a user who is not in that group. You will not see that profile in the Portal.
+4. Open the browser, connect to htt://http://198.71.59.129:9443 and log with a user who is not in that group. You will not see that profile in the Portal.
 
 5. Logout the Thinfinity Workspace and log with a user who is part in that group. You will see that profile in the Portal.
    
@@ -238,44 +240,21 @@ Create your own connections
    	- Credentials : select use the authenticated credentials
    	- Define the name of the connection
   
-3. Select the profile and open RDP connection with the server 	
-
-
-
-
-Connect a RDP session to the RDS Host using the Secondary Broker 
-=
-
-1. Open Thinfinity Configuration Manager from the first server, select Profiles and Add RDP connection
-    
-2. On the form complete the following
-	- name: RDP session in RDS Host
-	- Click "open in new tab"
-	- Select RDP
-	- Computer: complete the second IP address
-	- Select Use the authenticated credentials
-	- Accept the configuration
-
-3. Apply the configuration in the Configuration Manager
-
-4. Open the browser and select the "RDS session in RDS Host". A new tab will be open with the RDP connection.
+3. Open the browser, connect to htt://http://198.71.59.129:9443 and select the profile and open RDP connection with the server 	
 
 Configure and test a Remote application running in the RDS host
 =
 
-For this example we could use different kind of applications or at least, Windows Accesories like notepad. In my example I will use Microsoft Office components.
-
-
-1. Deploy Microsoft office using the default configuration in the secondary server where RDS is running.
+1. Deploy Microsoft office using the default configuration in the Secondary Broker Server where RDS is running. Remember to configure the Office License as for a Shared Computer, if you don't do it at the Office setup you have another opportunity. Use Registry Editor to add a String value (Reg_SZ) of SharedComputerLicensing with a setting of 1 under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\ClickToRun\Configuration.
   
-2. In the first server open Thinfinity Configuration Manager, select Profiles and Add RDP connection
+2. In the Primary Broker Server open Thinfinity Configuration Manager, select Profiles and Add RDP connection
     
 3. On the form complete the following
 	- name: WinWord
 	- Click "open in new tab"
 	- Select RDP
-	- Computer: complete the IP address of the secondary server
-	- Select Ask for new credentials
+	- Computer: complete the IP address of the secondary server or if you have more than a server in the pool you could use 127.0.0.1 to use any server asigned to it
+	- Select Ask for new credentials (because we are using users from that Second Broker server who have RDS permissions)
  	- In the Program tab complete the following
   		- Program Path and file name: "C:\Program Files (x86)\Microsoft Office\root\Office16\WINWORD.EXE"
     		- Deselect "Show Windows Logon and Logout Screen"	 
@@ -283,13 +262,13 @@ For this example we could use different kind of applications or at least, Window
 
 4. Apply the configuration in the Configuration Manager
 
-6. Open the browser and select the "WinWord" icon. A new tab will be open with Microsoft Word.
+6. Open the browser, connect to htt://http://198.71.59.129:9443 and select the "WinWord" icon. A new tab will be open with Microsoft Word.
 
 
 Another way to configure a Remote application running in the RDS host
 =
   
-1. Open User interface and select the "+ New Profile" button
+1. Open the browser, connect to htt://http://198.71.59.129:9443 and select the "+ New Profile" button
     
 2. On the Wizard select Application and then select Remote Application
 
@@ -316,7 +295,7 @@ USB Redirection
 
 USB redirection allows you to use a local USB device in your endpoint. 
 
-1. In the second machine navigate up to  C:\Program Files\Thinfinity\Workspace\bin64
+1. In the Second Broker machine navigate up to  C:\Program Files\Thinfinity\Workspace\bin64
 
 2. Create a file called Thinfinity.Params.ini with the following
 ```
@@ -338,7 +317,7 @@ var settings = {
                 webUsb: true,	
 ```
 
-6. Open a connection to the User Portal and open a RDP connection
+6. Open the browser, connect to htt://http://198.71.59.129:9443 and open a RDP connection
 
 7. At the top of the connection window, you have different options like Actions, File Transfer and Options. Inside Option you will see a new option in the menu called "Connect USB". There you will see the USB devices from your endpoint.
 
