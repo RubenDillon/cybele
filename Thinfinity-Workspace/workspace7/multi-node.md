@@ -14,7 +14,7 @@ Requirements
 2. A second virtual machine where to deploy the broker
 3. A third virtual machine to be used as Remote Desktop Session Host where will deploy applications and Thinfinity Workplace Secondary Broker
 
-![alt text](https://github.com/RubenDillon/cybele/blob/main/Thinfinity-Workspace/workspace7/two-nodes.jpg?raw=true)
+![alt text](https://github.com/RubenDillon/cybele/blob/main/Thinfinity-Workspace/workspace7/multi-node.png?raw=true)
 
 Create the Reverse Gateway
 =
