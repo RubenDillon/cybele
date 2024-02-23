@@ -242,7 +242,7 @@ Create your own connections
   
 3. Open the browser, connect to htt://http://198.71.59.129:9443 and select the profile and open RDP connection with the server 	
 
-Configure and test a Remote application running in the RDS host
+Configure and test a Remote application (a Microsoft Office app) running in the RDS host
 =
 
 1. Deploy Microsoft office using the default configuration in the Secondary Broker Server where RDS is running. Remember to configure the Office License as for a Shared Computer, if you don't do it at the Office setup you have another opportunity. Use Registry Editor to add a String value (Reg_SZ) of SharedComputerLicensing with a setting of 1 under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\ClickToRun\Configuration.
