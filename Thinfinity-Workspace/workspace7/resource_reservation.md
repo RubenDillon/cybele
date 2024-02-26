@@ -59,10 +59,37 @@ Create Resources
     - Modify the Booking limit
     - Modify Buffer
 
-5. 
-6. }df
 
+Review the UI
+=
 
+1. Access the Remote Acess Workspace UI as Administrator
+
+2. Go to the new created Label and try to access the profiles created. You will not have access. You will need ask for permissions, to use those resources.
+
+3. Select your user, the icon at the upper right corner and then select "Resource Reservation"
+
+4. You will have a new windows where you will have New Resource request and tabs like Calendar, Pending Request and History. Select "New Resource Request"
+
+5. You will have to select for who will be the request. For you or for a group. Now, test to request a resource for you
+
+6.  You will have the resources that you have permissions. Select one,
+
+7.  New when do you want to have access.
+
+8.  Wait the time proposed and you will se that resource available
+
+9.  Now test the user experience that is not administrator. Log with the other user
+
+10.  You will see everything grey and go to Resource Reservation
+
+11.  Select New Resource Request and you will presented with the options of the resources that you have permissions
+
+12.  Complete the steps and you will see that you have a "Pending approval"
+
+13.  Login as Administrator and you will have a Notification. If you go to Resource Reservation you will see in Pending Request the request.
+
+14. Now you could approve or reject the requirement
 
 
 
