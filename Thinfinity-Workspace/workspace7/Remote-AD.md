@@ -20,7 +20,7 @@ Deploy Thinfinity Remote Active Directory Services
 
 3. Once the application were installed, run the Thinfinity Remote Active Directory Manager
 
-4. In the General tab, you need to copy the Network ID from the Broker and ADD a your gateway to the Gateway list (in the following format http://<server>:9443)
+4. In the General tab, you need to copy the Network ID from the Broker and ADD your gateway server to the Gateway list (in the following format http://<server>:9443)
 
 5. In the Group tabs, no changes
 
@@ -39,7 +39,8 @@ Broker configuration
 
 4. You will have a form with the following information
     - Name: Name of the service, for example CYBELE AD
-    - Under Service, in the Filter expression: press the dots and select your DOMAIN and NETBIOS .. for example cybele.local and cybele
+    - Under Service, in the Filter expression: press the dots and complete your DOMAIN and NETBIOS .. for example cybele.local and cybele.
+    - Default Expression and URL, will be populated for you
     - API Authentication: in those fields complete with the user that you define in the Remote Active Directory Services server. Use for example the administrator in the Username and complete the password
 
 5. asf
