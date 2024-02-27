@@ -4,11 +4,13 @@ In this tutorial we will be using Remote Active Directory Services of Thinfinity
 
 The main idea with this feature is give the possibility to have access to a remote Active Directory in our environment. 
 
-The use case will be as follow
-    - We have an idependent domain
-                - we have Thinfinity already deployed in a domain without contact to the other or in a workgroup
+The use case could be described as we have an idependent domain and our enviroment is already deployed in a domain without contact to the other or in a workgroup
                 
 In this example, we want to give access to the users from the other domain.
+
+For our How-to we will have a Domain called cybele.local and a Thinfinity environment created in standalone servers, in a workgroup configuration. No domain at all.
+
+
 
 Deploy Thinfinity Remote Active Directory Services 
 =
