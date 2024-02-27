@@ -5,8 +5,7 @@ In this tutorial we will be using Remote Active Directory Services of Thinfinity
 The main idea with this feature is give the possibility to have access to a remote Active Directory in our environment. 
 
 The use case will be as follow
-
-                - We have an idependent domain
+    - We have an idependent domain
                 - we have Thinfinity already deployed in a domain without contact to the other or in a workgroup
                 
 In this example, we want to give access to the users from the other domain.
