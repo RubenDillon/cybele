@@ -8,7 +8,8 @@ The main idea with this feature is give the possibility to have access to a remo
 
                 - We have an idependent domain
                 - We have a lot of money
-
+                - we have Thinfinity already deployed in a domain without contact to the other or in a workgroup
+                
 In this example, we want to give access to the users from the other domain.
 
 Deploy Thinfinity Remote Active Directory Services 
