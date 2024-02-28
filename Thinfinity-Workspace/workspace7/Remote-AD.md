@@ -43,4 +43,19 @@ Broker configuration
     - Default Expression and URL, will be populated for you
     - API Authentication: in those fields complete with the user that you define in the Remote Active Directory Services server. Use for example the administrator in the Username and complete the password
 
-5. asf
+5. Now you need to have only your connection checked in the "Directory Services" tab. Uncheck Thinfinity Identity Provider and Local Windows Users to not allow local logins
+
+6. Apply all the changes
+
+Create a connection and test the domain
+=
+
+1. Now we could create an Access Profile with the information that you want
+
+2. We could define who could access to this profile. For that select Permissions tab and uncheck Allow Annonymous access.
+
+3. Then press ADD and type a user (administrator or any do you have created)
+
+4. Press the magnifying glass next to the field where you type the username or the group
+
+5. You will be presented the user or group that you search (for example CYBELE\alex)
