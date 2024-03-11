@@ -26,12 +26,7 @@ Create the Reverse Gateway
 	- Reverse Gateway
 	- The default directory
 	
-4. Once the deployment completes, we need to request the Trial Serial Number. For that we need to run the
-Thinfinity Remote Desktop Configuration Manager and select the appropiate option.
-
-5. Complete the internet form and you will receive an email with the data we need to complete.
-   
-6. Select the offline or online validation and leave blank the options for the Primary and Second Licence server.
+4. Once the deployment completes, run the Thinfinity Remote Desktop Configuration Manager.
 
 
 Create the Primary Broker
@@ -44,18 +39,17 @@ Create the Primary Broker
 	- Broker
 	- The default directory
 	
-4. Once the deployment completes, we need to request the Trial Serial Number. For that we need to run the
-Thinfinity Remote Desktop Configuration Manager and select the appropiate option.
+4. Once the deployment completes, run the Thinfinity Remote Desktop Configuration Manager.
 
-5. Complete the internet form and you will receive an email with the data we need to complete.
+5. You will be asked for the licence. Complete the internet form and you will receive an email with the data we need to complete.
    
-6. Select the offline or online validation and leave blank the options for the Primary and Second Licence server.
+6. Select the online validation and leave blank the options for the Primary and Second Licence server.
 
 7. When the deployment finish, you will have the Configuration Manager application open.
 
-8. Now you need to modify the Network ID (use the ID from the Gateway) and add the first node inside Gateway List using the following format http://198.71.59.129:9443
+8. Now you need to modify the Network ID (use the ID from the Gateway Server that we already deployed) and add the first node inside Gateway List using the following format http://server:9443 (in our example http://198.71.59.129:9443)
 
-9. Now, we could test Thinfinity Workplace against the first node using http://198.71.59.129:9443
+9. Now, we could test Thinfinity Workplace against the first node using http://198.71.59.129:9443 from any HTLM5 browser
         
 
 Create the Secondary Broker
