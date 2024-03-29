@@ -59,7 +59,7 @@ Configure and test a connection to the local intranet
 =
 1. Deploy IIS in the Windows server with all the defaults
 	- Open Server Manager
-	- Select Deploy Server Roles and Features on the local server
+	- Select Deploy Server Roles and Features on the local server 
 	- Select Web Server (IIS)
 	- Accept all by default  
             
