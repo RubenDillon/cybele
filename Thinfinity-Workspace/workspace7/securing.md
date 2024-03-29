@@ -25,9 +25,9 @@ IIS Crypto configuration
             
 Use of Digital Certificate
 =
-1. If we have a certificate (PFX file) and the passphrase we could add this to the Gateway
+1. If we have a certificate (PFX file) and the passphrase follow this steps using the Gateway
    
-2. Go to the Gateway server and select Thinfinity Gateway application
+2. Select Thinfinity Gateway application
    
 3. Go to the Bindings and select ADD
 	- On Protocol select HTTPS
@@ -39,3 +39,8 @@ Use of Digital Certificate
    	- Press the OK button and then Apply 
 
 4. Now try to access the Thinfinity Workspace using https://serverFQDN  instead of HTTP://serverFQDN:9443
+
+
+Use of a free public certificate
+=
+1. To use a free public certificate please follow the following documentation https://github.com/RubenDillon/cybele/blob/main/Thinfinity-Workspace/workspace7/certificate.md
