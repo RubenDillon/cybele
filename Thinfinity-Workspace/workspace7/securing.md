@@ -38,4 +38,4 @@ Use of Digital Certificate
   	- Select on the Certicate field, the certificate that you have imported
    	- Press the OK button and then Apply 
 
-4. Now try to access the Thinfinity Workspace using https://<server FQDN or IP Address> instead of HTTP://<server FQDN or IP Address>:9443
+4. Now try to access the Thinfinity Workspace using https://<serverFQDN <or <IP Address<> instead of HTTP://<serverFQDN <or <IP <Address>:9443
