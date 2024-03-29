@@ -30,9 +30,12 @@ Use of Digital Certificate
 2. Go to the Gateway server and select Thinfinity Gateway application
    
 3. Go to the Bindings and select ADD
-	- Open Server Manager
-	- Select Deploy Server Roles and Features on the local server 
-	- Select Web Server (IIS)
-	- Accept all by default  
+	- On Protocol select HTTPS
+	- On Bind to IP, you could select the default or you could use the IP who have internet connectivity
+	- On Port select 443
+	- On SSL select NEW button
+ 	- Select Import certificate and follow the wizard
+  	- Select on the Certicate field, the certificate that you have imported
+   	- Press the OK button and then Apply 
 
-4. 
+4. Now try to access the Thinfinity Workspace using https://<server FQDN or IP Address> instead of HTTP://<server FQDN or IP Address>:9443
