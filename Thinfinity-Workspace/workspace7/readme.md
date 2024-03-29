@@ -61,7 +61,7 @@ Configure and test a connection to the local intranet
 	- Open Server Manager
 	- Select Deploy Server Roles and Features on the local server
 	- Select Web Server (IIS)
-	- Accept all by default 
+	- Accept all by default  
             
 2. Open Thinfinity Configuration Manager, select Profiles and Add web link
     
