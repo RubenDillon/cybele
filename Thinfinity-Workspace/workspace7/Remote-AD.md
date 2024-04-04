@@ -20,7 +20,7 @@ Deploy Thinfinity Remote Active Directory Services
 
 3. Once the application were installed, run the Thinfinity Remote Active Directory Manager
 
-4. In the General tab, you need to copy the Network ID from the Broker and ADD your gateway server to the Gateway list (in the following format http://<server>:9443)
+4. In the General tab, you need to copy the Network ID from the Broker and ADD your gateway server to the Gateway list (in the following format http://server:9443)
 
 5. In the Group tabs, no changes
 
